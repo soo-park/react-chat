@@ -2,6 +2,7 @@ var express    = require('express')
 var app        = express()
 var bodyParser = require('body-parser')
 var shortid = require('shortid')
+var items = require('../database')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -28,7 +29,6 @@ const database = [
   { name: 'Tea Chats', id: 0, users: ['Ryan','Nick', 'Danielle'], messages: [{name: 'Ryan', message: 'ayyyyy', id: 'gg35545', reaction: null},{name: 'Nick', message: 'lmao', id: 'yy35578', reaction: null}, {name: 'Danielle', message: 'leggooooo', id: 'hh9843', reaction: null}]},
   { name: 'Coffee Chats', id: 1, users: ['Abdul'], messages: [{name: 'Abdul', message: 'ayy', id: 'ff35278', reaction: null}]}
 ]
-
 
 // Utility functions
 const findRoom = (roomId) => {
