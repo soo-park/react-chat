@@ -2,33 +2,35 @@ var mysql      = require('mysql');
 var mysqlConfig = require('./config.js');
 var connection = mysql.createConnection(mysqlConfig);
 
-
 var getRooms = function(callback) {
-  connection.query('SELECT * FROM users', (err, rows, fields) => {
+  connection.query('SELECT * FROM rooms', (err, rows, fields) => {
     if (err) throw err;
-    callback(rows);
+      callback(rows);
   })
 };
 
-var getOneRoom = function(name, callback) {
-  connection.query(`SELECT * FROM users where name="${name}"`, (err, rows, fields) => {
+var getOneRoom = function(id, callback) {
+  connection.query(`SELECT * FROM rooms where id="${id}"`, (err, rows, fields) => {
     if (err) throw err;
-    callback(rows);
+      callback(rows);
   })
 };
 
-var postMessage = function(fromUser, toUser, Message, callback) {
-  individualMessage(toUser, (data1)=> {
-    var fromUserMessage = data[0].message - Number(Message);
-    var toUserMessage = data1[0].message + Number(Message);
-    connection.query(`update users set message=${fromUserMessage} where name="${fromUser}"`, (err, rows, fields) => {
-      if (err) throw err;
-      connection.query(`update users set message=${toUserMessage} where name="${toUser}"`, (err, rows, fields) => {    
-      })
-    })      
+var postMessage = function(userId, message, callback) {
+  connection.query(`update message set message=${message} where id="${userId}"`, (err, rows, fields) => {
+    if (err) throw err;
+      callback(rows);
   })
 };
 
+var getMessagesForRoom = function(roomId) {
+  connection.query(`SELECT * FROM messages where roomId=${roomId}`, (err, rows, fields) => {
+    if (err) throw err;
+      callback(rows);
+  })
+};
 
-module.exports.getAllUsers = getAllUsers;
+module.exports.getRooms = getRooms;
+module.exports.getOneRoom = getOneRoom;
 module.exports.postMessage = postMessage;
+module.exports.getMessages = getMessages;

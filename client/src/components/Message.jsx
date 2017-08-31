@@ -40,8 +40,8 @@ class Message extends React.Component {
 
   render () {
     return (
-      <div>
-        <div className="row message-body">
+      <div className="message-body">
+        <div>
           <div className="message-box">
             {this.state.messages.length !== 0 ? this.state.messages.map(
               item => {

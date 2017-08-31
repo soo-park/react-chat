@@ -89,7 +89,8 @@
 /* Top.jsx */
 .top {
     height: 100px;
-    display: inline-block;    
+    display: inline-block;
+    padding-top: 20px;
 }
 
 .top-name {
@@ -100,5 +101,10 @@
 .bottom {
     height: 100px;
     padding-right: 50px;
-    padding-left: 20px;    
+    padding-left: 20px;  
+    height: 100px; 
+    width: 80%;
+    position: absolute;
+    left: 200px;
+    bottom: 0;   
 }
