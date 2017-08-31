@@ -32,13 +32,13 @@
     "axios": "^0.16.2",
     "body-parser": "^1.17.2",
     "jquery": "^3.1.1",
+    "mysql": "^2.14.1",
     "nodemon": "^1.11.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "shortid": "^2.2.8",
     "socket.io": "^2.0.3",
     "socket.io-client": "^2.0.3",
-    "xss-filters": "^1.2.7",
-    "mysql": "^2.13.0"
+    "xss-filters": "^1.2.7"
   }
 }
