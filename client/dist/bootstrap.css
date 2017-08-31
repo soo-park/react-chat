@@ -1,0 +1,49 @@
+/* modification on default bootstrap CSS */
+
+/* Bootstrap Button */
+.btn-primary {
+    background-color: #FC2046;
+    border: #FC2046;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #7F0F22;
+    border-color: #7F0F22; /*set the color you want here*/
+}
+
+/* Bootstrap Navbar */
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:visited {
+    color: #FFFFFF;
+}
+
+.navbar-brand {
+    height: 100px;
+} 
+
+.navbar-default {
+    color: #fff;
+    background-color: #FC2046;
+    border: #FC2046;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:visited {
+    background-color: #7F0F22;
+    color: #FFFFFF;
+}
+
+.navbar-fixed-left {
+    width: 200px;
+    position: fixed;
+    border-radius: 0;
+    height: 100%;
+}
+
+.navbar-fixed-left .navbar-nav > li {
+    float: none;  /* Cancel default li float: left */
+    width: 200px;
+}
+
+.navbar-fixed-left + .container {
+    padding-left: 200px;
+}
