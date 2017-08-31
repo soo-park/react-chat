@@ -1,7 +1,4 @@
 import React from 'react';
-import io from 'socket.io-client';
-const socket = io();
-
 import Left from './Left.jsx';
 import Top from './Top.jsx';
 import Message from './Message.jsx';
@@ -16,15 +13,6 @@ class Body extends React.Component {
       userName: props.status.userName,
       roomId: 0
     }
-  }
-
-
-  componentDidMount() {
-    var socket = io.connect('http://localhost:3000');
-    socket.on('return-message', function (data) {
-      console.log("this is data of socket io in Body", data);
-      socket.emit('my other event', { my: 'data' });
-    });
   }
 
 

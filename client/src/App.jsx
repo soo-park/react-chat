@@ -1,6 +1,8 @@
 import React from 'react';
 import Login from './components/Login.jsx';
 import Body from './components/Body.jsx';
+import io from 'socket.io-client';
+var socket = io();
 
 
 class App extends React.Component {
@@ -11,6 +13,15 @@ class App extends React.Component {
       userName: null,
       loginTime: null
     }
+  }
+
+
+  componentDidMount() {
+    var socket = io.connect('http://localhost:3000');
+    socket.on('return-message', function (data) {
+      console.log("this is data of socket io in Body", data);
+      socket.emit('my other event', { my: 'data' });
+    });
   }
 
 
