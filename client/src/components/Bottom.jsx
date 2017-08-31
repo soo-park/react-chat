@@ -15,6 +15,17 @@ function handleMessageSend(e) {
     var line = "<div class='my-message message-balloon'>" + input + "</div>";
     $(".message-box").append(line);
     $(".message").val('');
+
+    // FIXME: use socket io for text emition (currently broadcast errors)
+    var socket = io();
+    socket.emit('chat message', input);
+
+    // move this to on change, once built
+    // receive the emition and deal with it once broadcast issue is fixed
+    socket.on('chat message', function(msg){
+      // console.log(msg);
+      // $('#messages-box').append(line);
+    })
   }
 }
 

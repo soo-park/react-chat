@@ -27,11 +27,11 @@ io.on('connection', function(socket) {
   
   console.log('a user has connected to socket id: ', socket.id);
   
-  socket.on('send', (message) => {
+  socket.on('chat message', (message) => {
     console.log('received message:', message);
     // store in db here
     // server should add the timestamp & id
-    socket.emit('return-message', message);
+    io.emit('chat message', message);
   });
 
   socket.on('disconnect', function(){
@@ -39,4 +39,3 @@ io.on('connection', function(socket) {
   });  
 
 });
-

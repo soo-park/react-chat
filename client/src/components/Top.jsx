@@ -41,9 +41,11 @@ class Top extends React.Component {
   render () {
     return (
       <div className="top bounding">
-        {this.state.currentRoom ? this.state.currentRoom.name : ""}<br />
-        {this.state.userName}
-        {this.state.currentRoom ? this.state.currentRoom.users.map(user => ", " + user): ""}
+        <div className="top-name"> {this.state.currentRoom ? this.state.currentRoom.name : ""} </div>
+        <div>
+          <span className="red-text">{this.state.userName}</span>
+          <span>{this.state.currentRoom ? this.state.currentRoom.users.map(user => ", " + user): ""}</span>
+        </div>
       </div>
     )
   }

@@ -1,6 +1,6 @@
 # React chat app
 
-## Dependancies
+### Dependancies
 
     "express": "~4.0.0",
     "socket.io": "^2.0.3",
@@ -19,7 +19,7 @@
     "shortid": "^2.2.8",
     "xss-filters": "^1.2.7"
 
-## Dev-dependancies
+### Dev-dependancies
 
     "webpack": "^2.2.1",
     "nodemon": "^1.11.0",
@@ -28,9 +28,9 @@
     "enzyme": "^2.9.1"
 
 ### Installing minimum deps
-    ```npm install```
+    npm install
 
-## Scripts
+### Scripts
 
     "build": "webpack -d --watch",
     "test": "jest --coverage --watchAll",
@@ -38,7 +38,7 @@
     "api-server": "node server.js"
 
 
-## Check points
+### Check points
 
 * No scaffolding tool was used
 * maintainability: 
