@@ -17,10 +17,11 @@ class App extends React.Component {
 
 
   componentDidMount() {
-    var socket = io.connect('http://localhost:3000');
-    socket.on('return-message', function (data) {
+    // var socket = io.connect('http://localhost:3000');
+    socket.on('chat message', function (data) {
       console.log("this is data of socket io in Body", data);
-      socket.emit('my other event', { my: 'data' });
+      // socket.emit('my other event', { my: 'data' });
+      
     });
   }
 
@@ -37,7 +38,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        {this.state.view === 'login' ? <Login changeView={this.handleViewChange.bind(this)}/> : <Body status={this.state}/>}
+        {this.state.view === 'login' ? <Login changeView={this.handleViewChange.bind(this)}/> : <Body status={this.state} socket={socket}/>}
       </div>
     )
   }

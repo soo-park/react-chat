@@ -32,7 +32,7 @@ class Body extends React.Component {
         <Left userName={this.state.userName} roomId={this.state.roomId} handleRoomChange={this.handleRoomChange.bind(this)}/>
         <div className="viewPane">
           <Top userName={this.state.userName} roomId={this.state.roomId} />
-          <Message roomId={this.state.roomId}/>
+          <Message roomId={this.state.roomId} socket={this.props.socket} />
         </div>
       </div>
     )

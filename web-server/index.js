@@ -31,7 +31,7 @@ io.on('connection', function(socket) {
     console.log('received message:', message);
     // store in db here
     // server should add the timestamp & id
-    io.emit('chat message', message);
+    socket.broadcast.emit('chat message', message);
   });
 
   socket.on('disconnect', function(){

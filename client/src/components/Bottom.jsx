@@ -1,7 +1,9 @@
 import React from 'react';
 
+function handleMessageSend(e, props) {
+  console.log(props, "is the props in the Bottom");
+  var socket = props.socket;
 
-function handleMessageSend(e) {
   e.preventDefault();
   var input = $(".message").val();
   
@@ -17,23 +19,23 @@ function handleMessageSend(e) {
     $(".message").val('');
 
     // FIXME: use socket io for text emition (currently broadcast errors)
-    var socket = io();
+    // var socket = io();
     socket.emit('chat message', input);
 
     // move this to on change, once built
     // receive the emition and deal with it once broadcast issue is fixed
-    socket.on('chat message', function(msg){
-      // console.log(msg);
+    // socket.on('chat message', function(msg){
+    //   console.log(msg);
       // $('#messages-box').append(line);
-    })
+    // })
   }
 }
 
 
 const Bottom = (props) => (
   <div className="bottom bounding">
+      <div className="send" onClick={(e) => handleMessageSend(e, props)} >Send</div>
       <input type="text" name="message" placeholder="Type a message..." className="message form-control " />
-      <div className="send" onClick={(e) => handleMessageSend(e)} >Send</div>
   </div>
 )
 
