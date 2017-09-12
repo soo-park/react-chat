@@ -26,7 +26,7 @@ class Messages extends React.Component {
     });
   }
 
-
+  
   componentDidMount() {
     this.handleMessage(this.props.roomId);
   }
@@ -39,12 +39,8 @@ class Messages extends React.Component {
 
   render () {
     return (
-      <div className="message-body">
-        <div>
-          <div className="message-box">
-            {this.state.messages.length !== 0 ? this.state.messages.map(item => <Message item={item} key={item.id}/>): ""}
-          </div>
-        </div>
+      <div className="message-box">
+        {this.state.messages.length !== 0 ? this.state.messages.map(item => <Message item={item} key={item.id}/>): ""}
       </div>
     )
   }

@@ -43,7 +43,7 @@ body {
 }
 
 /* Message.jsx */
-.message-body {
+.message-box {
     top: 0px;
     margin:0px;
     padding: 0px 2px 2px 3px;    
@@ -58,12 +58,6 @@ body {
     /* Standard */
     height: calc(100vh - 200px);
     overflow: auto;
-}
-
-.message-box {
-    overflow: auto;
-    height: 100%;
-    width: auto;
 }
 
 .message-balloon {
