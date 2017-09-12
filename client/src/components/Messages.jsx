@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import Bottom from './Bottom.jsx'
 
 
 class Message extends React.Component {
@@ -55,7 +54,6 @@ class Message extends React.Component {
             ): ""}
           </div>
         </div>
-        <Bottom socket={this.props.socket} />
       </div>
     )
   }

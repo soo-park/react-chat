@@ -33,10 +33,10 @@ function handleMessageSend(e, props) {
 
 
 const Bottom = (props) => (
-  <div className="bottom bounding">
-      <div className="send" onClick={(e) => handleMessageSend(e, props)} >Send</div>
-      <input type="text" name="message" placeholder="Type a message..." className="message form-control " />
-  </div>
+  <footer className="bottom bounding">
+    <input type="text" name="message" placeholder="Type a message..." className="message form-control" />
+    <div className="send" onClick={(e) => handleMessageSend(e, props)} >Send</div>      
+  </footer>
 )
 
 
