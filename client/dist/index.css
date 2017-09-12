@@ -1,10 +1,17 @@
 /* Login.jsx */
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
 .bounding {
     display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
     display: -ms-flexbox;  /* TWEENER - IE 10 */
     display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
     display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
-    justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
@@ -12,6 +19,7 @@
 }
 
 .login {
+    justify-content: center;
     padding-top: 100px; 
 }
 
@@ -25,29 +33,38 @@
 
 .send {
     padding-left: 20px;
+    padding-right: 20px;
     color: #079AC7;
 }
 
 .viewPane {
+    background-color: #EEEEEE;    
     padding-left: 200px;
 }
 
 /* Message.jsx */
 .message-body {
-    background-color: #EEEEEE;
     top: 0px;
     margin:0px;
     padding: 0px 2px 2px 3px;    
     border-width: 2px;
-    border-top: 2px #CCCCCC solid;
-    border-bottom: 2px #CCCCCC solid;
     width: 100%;
+    /* Firefox */
+    height: -moz-calc(100vh - 200px);
+    /* WebKit */
+    height: -webkit-calc(100vh - 200px);
+    /* Opera */
+    height: -o-calc(100vh - 200px);
+    /* Standard */
+    height: calc(100vh - 200px);
+    overflow: auto;
 }
 
 .message-box {
-    height: 400px;
-    overflow: auto;
+    overflow: auto;    
+    height: 100%;
     width: auto;
+    margin-bottom: 100px;
 }
 
 .message-balloon {
@@ -88,9 +105,12 @@
 
 /* Top.jsx */
 .top {
+    justify-content: center;
     height: 100px;
     display: inline-block;
     padding-top: 20px;
+    border-bottom: 2px #CCCCCC solid;
+    background-color: #fff;
 }
 
 .top-name {
@@ -100,11 +120,14 @@
 
 .bottom {
     height: 100px;
-    padding-right: 50px;
-    padding-left: 20px;  
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 30vw;;
     height: 100px; 
-    width: 80%;
+    width: 100%;
     position: absolute;
     left: 200px;
-    bottom: 0;   
+    bottom: 0;
+    background-color: #fff;
+    border-top: 2px #CCCCCC solid;
 }
