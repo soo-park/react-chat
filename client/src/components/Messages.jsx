@@ -1,8 +1,8 @@
 import React from 'react';
-import axios from 'axios';
+import Message from './Message.jsx';
 
 
-class Message extends React.Component {
+class Messages extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,16 +42,7 @@ class Message extends React.Component {
       <div className="message-body">
         <div>
           <div className="message-box">
-            {this.state.messages.length !== 0 ? this.state.messages.map(
-              item => {
-                return (
-                  <div className="message-group" key={item.id} >
-                    <div className="other-message-name">{item.name}</div>
-                    <div className="message-balloon other-message"> {item.message} </div>
-                  </div>
-                )
-              }
-            ): ""}
+            {this.state.messages.length !== 0 ? this.state.messages.map(item => <Message item={item} key={item.id}/>): ""}
           </div>
         </div>
       </div>
@@ -59,4 +50,4 @@ class Message extends React.Component {
   }
 }
     
-export default Message;
+export default Messages;
