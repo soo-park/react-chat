@@ -11,7 +11,9 @@ class Body extends React.Component {
     this.state = {
       view: props.status.view,
       userName: props.status.userName,
-      roomId: 0
+      userId: props.status.userId,
+      roomId: 0,
+      messages: props.status.messages
     }
   }
 
@@ -32,7 +34,7 @@ class Body extends React.Component {
         <Left userName={this.state.userName} roomId={this.state.roomId} handleRoomChange={this.handleRoomChange.bind(this)}/>
         <div className="viewPane">
           <Top userName={this.state.userName} roomId={this.state.roomId} />
-          <Messages roomId={this.state.roomId} socket={this.props.socket} />
+          <Messages roomId={this.state.roomId} socket={this.props.socket} userId={this.state.userId} userName={this.state.userName}/>
           <Bottom socket={this.props.socket} />          
         </div>
       </div>

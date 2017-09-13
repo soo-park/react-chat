@@ -7,11 +7,13 @@ class Messages extends React.Component {
     super(props);
     this.state = {
       roomId: this.props.roomId,
+      userId: this.props.userId,
+      userName: this.props.userName,
       messages: []
     };
   }
-  
-// FIXME: dynamically render from them messages array
+// FIXME: optimize // make request to web server, have web server request to DB?
+// have DB run interval? have only the change since loading to be loaded on room change?
   handleMessage(id) {
     $.ajax({
       url: `http://localhost:8080/api/rooms/${id}/messages`, 
@@ -40,7 +42,7 @@ class Messages extends React.Component {
   render () {
     return (
       <div className="message-box">
-        {this.state.messages.length !== 0 ? this.state.messages.map(item => <Message item={item} key={item.id}/>): ""}
+        {this.state.messages.length !== 0 ? this.state.messages.map(item => <Message item={item} key={item.id} userId={this.props.userId}/>): ""}
       </div>
     )
   }

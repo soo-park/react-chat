@@ -1,33 +1,28 @@
 import React from 'react';
 
+
 function handleMessageSend(e, props) {
-  console.log(props, "is the props in the Bottom");
+  // console.log(props, "is the props in the Bottom");
   var socket = props.socket;
 
   e.preventDefault();
   var input = $(".message").val();
   
   if(!input) {
-    console.log("username not entered");
+    console.log("message not entered");
   } else {
     // cross site scripting prevention
     var xssFilters = require('xss-filters');
     input = xssFilters.inHTMLData(input);
 
-    var line = "<div class='my-message message-balloon'>" + input + "</div>";
+    // Hardcode appending
+    var line = `<div class='my-message message-balloon'>` + input + "</div>";
     $(".message-box").append(line);
+    $(".message-balloon")[$(".message-balloon").length-1].scrollIntoView({ behaviour: 'smooth' });
     $(".message").val('');
 
-    // FIXME: use socket io for text emition (currently broadcast errors)
-    // var socket = io();
+    // FIXME: appending using socket.io
     socket.emit('chat message', input);
-
-    // move this to on change, once built
-    // receive the emition and deal with it once broadcast issue is fixed
-    // socket.on('chat message', function(msg){
-    //   console.log(msg);
-      // $('#messages-box').append(line);
-    // })
   }
 }
 

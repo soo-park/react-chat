@@ -4,33 +4,31 @@ import Body from './components/Body.jsx';
 import io from 'socket.io-client';
 var socket = io();
 
-
+// FIXME: implement redux for better state management
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       view: 'login',
       userName: null,
-      loginTime: null
+      userId: null,
+      messages: []
     }
   }
 
-
-  componentDidMount() {
-    // var socket = io.connect('http://localhost:3000');
-    socket.on('chat message', function (data) {
-      console.log("this is data of socket io in Body", data);
-      // socket.emit('my other event', { my: 'data' });
-      
-    });
-  }
-
-
-  handleViewChange(viewName, userName, loginTime) {
+  
+  handleViewChange(viewName, userName, userId) {
     this.setState({
       view: viewName,
       userName: userName,
-      loginTime: loginTime
+      userId: userId
+    });
+  }
+
+  
+  componentDidMount() {
+    socket.on('chat message', function (data) {
+      console.log("this is data of socket io in Messages", data);
     });
   }
 
@@ -38,7 +36,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        {this.state.view === 'login' ? <Login changeView={this.handleViewChange.bind(this)}/> : <Body status={this.state} socket={socket}/>}
+        {this.state.view === 'login' ? <Login changeView={this.handleViewChange.bind(this)}/> : <Body status={this.state} socket={socket} />}
       </div>
     )
   }

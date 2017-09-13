@@ -29,6 +29,7 @@ class Left extends React.Component {
       }
     };
     
+    
     setInterval(function(){
       var currentTime = new Date().getTime() / 1000;
       timeSpent = secondsToTime(currentTime - time);
@@ -39,7 +40,6 @@ class Left extends React.Component {
 
   componentDidMount() {
     this.handleTime();
-    // FIXME: check this.props.roomId & make the room name highlighted differently
     $.ajax({
       url: 'http://localhost:8080/api/rooms', 
       success: (data) => {
