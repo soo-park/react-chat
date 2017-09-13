@@ -30,8 +30,8 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "jquery": "^3.1.1",
-    "mysql": "^2.14.1",
     "nodemon": "^1.11.0",
+    "pg": "^7.3.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "shortid": "^2.2.8",
