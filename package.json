@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack -d --watch",
     "test": "jest --coverage --watchAll",
-    "start": "nodemon api-server/index.js"
+    "start": "nodemon server/index.js"
   },
   "engines": {
     "node": ">=7.0.0"
