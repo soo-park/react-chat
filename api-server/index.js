@@ -11,6 +11,32 @@ var port = process.env.PORT || 8080
 
 var router = express.Router()
 
+// Run server
+app.use(express.static(__dirname + '/../client/dist'));
+app.use('/api', router)
+
+var server = app.listen(port, function() {
+  console.log(`API running at localhost:${port}/api`)  
+});
+
+// Run Socket.io
+var io = require('socket.io').listen(server);
+
+io.on('connection', function(socket) {  
+  console.log('a user has connected to socket id: ', socket.id);
+  socket.on('chat message', (message) => {
+    console.log('received message:', message);
+    // FIXME: store chat data in db here
+    // broadcase excludes me: socket.broadcast.emit('chat message', message);
+    socket.emit('chat message', message);
+  });
+
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });  
+});
+
+
 // Unsafely enable cors
 router.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*")
@@ -113,6 +139,3 @@ router.route('/rooms/:roomId/messages')
     }
   })
 
-app.use('/api', router)
-app.listen(port)
-console.log(`API running at localhost:${port}/api`)

@@ -16,8 +16,6 @@
     body-parser: 1.17.2, 
     shortid: 2.2.8, 
     xss-filters: 1.2.7
-
-* WIP: given the time constraint, the following are in progress of implementation
     socket.io: 2.0.3, 
     socket.io-client: 2.0.3, 
     mysql: 2.14.1
@@ -47,15 +45,13 @@
 ```
     npm run build
 ```
-```
-    npm run api-servers
-```
 
 ### Each of the script will run the following commands
 
-* build: webpack -d --watch
-* start: nodemon web-server/index.js
-* api-server: node server.js
+```
+build: webpack -d --watch
+start: nodemon api-server/index.js
+```
 
 ### To test, run the following command
 ```
@@ -69,8 +65,6 @@
 
 * No scaffolding tool was used
 
-* The app was built with full-stack in mind - separate web-server was set instead of "serve" dependancy to raise service efficiency
-
 * maintainability : code was separated into modules 
 
 * testability : each module is by feature for testablity 
@@ -78,4 +72,3 @@
 * readability : all files follows same guidelines and structures
 
 * UX: given sample UX was built within time constraint
-
