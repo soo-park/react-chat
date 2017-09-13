@@ -29,9 +29,9 @@ io.on('connection', function(socket) {
   
   socket.on('chat message', (message) => {
     console.log('received message:', message);
-    // store in db here
-    // server should add the timestamp & id
-    socket.broadcast.emit('chat message', message);
+    // FIXME: store chat data in db here
+    // broadcase excludes me: socket.broadcast.emit('chat message', message);
+    socket.emit('chat message', message);
   });
 
   socket.on('disconnect', function(){

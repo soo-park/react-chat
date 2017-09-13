@@ -12,12 +12,12 @@ class Login extends React.Component {
   handleUsername(e) {
     e.preventDefault();
     var input = $("#user").val();
-    var timeStamp = "08/27/2017 12:00:00 pm"
+    var userId = "yy35578";
 
     if(!input) {
       console.log("username not entered");
     } else {
-      this.props.changeView('body', input, timeStamp);
+      this.props.changeView('body', input, userId);
     }
   }
 

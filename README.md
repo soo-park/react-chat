@@ -12,7 +12,6 @@
     babel-preset-react: 6.23.0
 
 * Extra functions: xss-filters is used to prevent Cross-site scripting (XSS) attacks
-    axios: 0.16.2, 
     jquery: 3.1.1, 
     body-parser: 1.17.2, 
     shortid: 2.2.8, 
