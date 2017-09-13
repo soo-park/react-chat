@@ -1,8 +1,8 @@
-var express    = require('express')
-var app        = express()
+var express = require('express')
+var app = express()
 var bodyParser = require('body-parser')
 var shortid = require('shortid')
-var items = require('../database')
+var db = require('../database')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
